@@ -1,0 +1,12 @@
+com\my\tictactoe\service\AuthenticationService.class
+com\my\tictactoe\AuthenticationFilter.class
+com\my\tictactoe\web\MainController.class
+com\my\tictactoe\SecurityConfig.class
+com\my\tictactoe\AuthEntryPoint.class
+com\my\tictactoe\MyUserDetails.class
+com\my\tictactoe\service\UserDetailsServiceImpl.class
+com\my\tictactoe\model\AccountCredentials.class
+com\my\tictactoe\web\UserController.class
+com\my\tictactoe\model\UserRepository.class
+com\my\tictactoe\model\User.class
+com\my\tictactoe\TictactoeApplication.class
