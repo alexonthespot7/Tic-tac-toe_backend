@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-slim
+FROM openjdk:11-jdk-slim
 VOLUME /tmp
 EXPOSE 8080
 ARG JAR_FILE
