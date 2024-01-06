@@ -1,7 +1,9 @@
-FROM openjdk:8-jdk-alpine
-VOLUME /tmp
+FROM maven:3.8.7-openjdk-18-slim AS build
+COPY . .
+RUN mvn clean package -DskipTests
+
+FROM openjdk:21-jdk-slim
+ENV SPRING_CONFIG_NAME=application,production
+COPY --from=build /target/tictactoe-0.0.1-SNAPSHOT.jar tictactoe.jar
 EXPOSE 8080
-ARG JAR_FILE
-ENV SPRING_DATASOURCE_URL=jdbc:postgresql://dpg-cfg3v602i3mg6pauep6g-a.frankfurt-postgres.render.com:5432/tic_tac_toe_db_mtpw?user=tic_tac_toe_db_mtpw_user&password=WZIu93kTEEVC8bL0TUYOMVuwUWInXLwk
-COPY target/tictactoe-0.0.1-SNAPSHOT.jar app.jar
-ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+ENTRYPOINT ["java","-jar","tictactoe.jar"]
